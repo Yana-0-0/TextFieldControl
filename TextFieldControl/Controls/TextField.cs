@@ -14,69 +14,19 @@ namespace TextFieldControl.Controls;
 /// </summary>
 public class TextField : TextBox
 {
-    #region Enums
-
-    /// <summary>
-    /// Варианты оформления текстового поля
-    /// </summary>
-    public enum FieldVariant { Standard, Filled, Outlined }
-
-    /// <summary>
-    /// Размеры текстового поля
-    /// </summary>
-    public enum FieldSize { Medium, Small }
-
-    #endregion
-
     #region Styled Properties
 
     /// <summary>
-    /// Определяет вариант оформления текстового поля
-    /// </summary>
-    public static readonly StyledProperty<FieldVariant> VariantProperty =
-        AvaloniaProperty.Register<TextField, FieldVariant>(nameof(Variant), FieldVariant.Standard);
-
-    /// <summary>
-    /// Определяет размер текстового поля
-    /// </summary>
-    public static readonly StyledProperty<FieldSize> SizeProperty =
-        AvaloniaProperty.Register<TextField, FieldSize>(nameof(Size), FieldSize.Medium);
-
-    /// <summary>
-    /// Текст метки (лейбла) поля
+    /// Текст метки (label) поля
     /// </summary>
     public static readonly StyledProperty<string> LabelProperty =
         AvaloniaProperty.Register<TextField, string>(nameof(Label), "Label");
 
     /// <summary>
-    /// Указывает, находится ли поле в состоянии ошибки
-    /// </summary>
-    public static readonly StyledProperty<bool> IsErrorProperty =
-        AvaloniaProperty.Register<TextField, bool>(nameof(IsError), false);
-
-    /// <summary>
     /// Включение многострочного режима
     /// </summary>
     public static readonly StyledProperty<bool> IsMultiLineProperty =
-        AvaloniaProperty.Register<TextField, bool>(nameof(IsMultiLine), false);
-
-    /// <summary>
-    /// Минимальное количество строк в многострочном режиме
-    /// </summary>
-    public static readonly StyledProperty<int?> MinRowsProperty =
-        AvaloniaProperty.Register<TextField, int?>(nameof(MinRows));
-
-    /// <summary>
-    /// Максимальное количество строк в многострочном режиме
-    /// </summary>
-    public static readonly StyledProperty<int?> MaxRowsProperty =
-        AvaloniaProperty.Register<TextField, int?>(nameof(MaxRows));
-
-    /// <summary>
-    /// Указывает, что поле имеет минимальное количество строк
-    /// </summary>
-    public static readonly StyledProperty<bool> HasMinRowsProperty =
-        AvaloniaProperty.Register<TextField, bool>(nameof(HasMinRows));
+        AvaloniaProperty.Register<TextField, bool>(nameof(IsMultiLine));
 
     /// <summary>
     /// Указывает, что поле имеет максимальное количество строк
@@ -85,10 +35,10 @@ public class TextField : TextBox
         AvaloniaProperty.Register<TextField, bool>(nameof(HasMaxRows));
 
     /// <summary>
-    /// Указывает, что поле имеет гибкую высоту
+    /// Указывает, что поле имеет минимальное количество строк
     /// </summary>
-    public static readonly StyledProperty<bool> IsFlexibleProperty =
-        AvaloniaProperty.Register<TextField, bool>(nameof(IsFlexible));
+    public static readonly StyledProperty<bool> HasMinRowsProperty =
+        AvaloniaProperty.Register<TextField, bool>(nameof(HasMinRows));
 
     #endregion
 
@@ -97,61 +47,20 @@ public class TextField : TextBox
     private ScrollViewer? _scrollViewer;
     private TextPresenter? _textPresenter;
     private ScrollBar? _customScrollBar;
-    private Border? _textContainer;
-    private bool _isScrollingFromCustomBar = false;
-
-    #endregion
-
-    #region Constructor
-
-    /// <summary>
-    /// Инициализирует новый экземпляр класса TextField
-    /// </summary>
-    public TextField()
-    {
-        UpdateMultiLineStates();
-        UpdateMultiLineHeight();
-        UpdateTextFieldBehavior();
-    }
+    private bool _isScrollingFromCustomBar;
+    private bool _isUpdatingFromClasses = false;
 
     #endregion
 
     #region Public Properties
 
     /// <summary>
-    /// Вариант оформления текстового поля
-    /// </summary>
-    public FieldVariant Variant
-    {
-        get => GetValue(VariantProperty);
-        set => SetValue(VariantProperty, value);
-    }
-
-    /// <summary>
-    /// Размер текстового поля
-    /// </summary>
-    public FieldSize Size
-    {
-        get => GetValue(SizeProperty);
-        set => SetValue(SizeProperty, value);
-    }
-
-    /// <summary>
-    /// Текст метки (лейбла) поля
+    /// Текст метки (label) поля
     /// </summary>
     public string Label
     {
         get => GetValue(LabelProperty);
         set => SetValue(LabelProperty, value);
-    }
-
-    /// <summary>
-    /// Указывает, находится ли поле в состоянии ошибки
-    /// </summary>
-    public bool IsError
-    {
-        get => GetValue(IsErrorProperty);
-        set => SetValue(IsErrorProperty, value);
     }
 
     /// <summary>
@@ -164,33 +73,6 @@ public class TextField : TextBox
     }
 
     /// <summary>
-    /// Минимальное количество строк в многострочном режиме
-    /// </summary>
-    public int? MinRows
-    {
-        get => GetValue(MinRowsProperty);
-        set => SetValue(MinRowsProperty, value);
-    }
-
-    /// <summary>
-    /// Максимальное количество строк в многострочном режиме
-    /// </summary>
-    public int? MaxRows
-    {
-        get => GetValue(MaxRowsProperty);
-        set => SetValue(MaxRowsProperty, value);
-    }
-
-    /// <summary>
-    /// Указывает, что поле имеет минимальное количество строк
-    /// </summary>
-    public bool HasMinRows
-    {
-        get => GetValue(HasMinRowsProperty);
-        private set => SetValue(HasMinRowsProperty, value);
-    }
-
-    /// <summary>
     /// Указывает, что поле имеет максимальное количество строк
     /// </summary>
     public bool HasMaxRows
@@ -200,12 +82,12 @@ public class TextField : TextBox
     }
 
     /// <summary>
-    /// Указывает, что поле имеет гибкую высоту
+    /// Указывает, что поле имеет минимальное количество строк
     /// </summary>
-    public bool IsFlexible
+    public bool HasMinRows
     {
-        get => GetValue(IsFlexibleProperty);
-        private set => SetValue(IsFlexibleProperty, value);
+        get => GetValue(HasMinRowsProperty);
+        private set => SetValue(HasMinRowsProperty, value);
     }
 
     #endregion
@@ -219,7 +101,11 @@ public class TextField : TextBox
 
         InitializeTemplateElements(e);
         SetupScrollBar();
-        UpdateMultiLineHeight();
+
+        // Подписываемся на изменение коллекции Classes
+        Classes.CollectionChanged += (_, _) => UpdatePropertiesFromClasses();
+
+        UpdatePropertiesFromClasses(); // Автоматическое обновление свойств из классов
         UpdateTextFieldBehavior();
 
         Dispatcher.UIThread.Post(UpdateCustomScrollBar, DispatcherPriority.Loaded);
@@ -230,29 +116,72 @@ public class TextField : TextBox
     {
         base.OnPropertyChanged(change);
 
-        HandlePropertyChanges(change);
+        // Обновляем скроллбар при изменении текста или режима MultiLine
+        if (change.Property == TextProperty ||
+            change.Property == IsMultiLineProperty ||
+            change.Property == HasMaxRowsProperty)
+        {
+            Dispatcher.UIThread.Post(UpdateCustomScrollBar);
+        }
+
+        // Обновляем поведение при изменении режима MultiLine
+        if (change.Property == IsMultiLineProperty)
+        {
+            UpdateTextFieldBehavior();
+        }
     }
 
     #endregion
 
-    #region MultiLine Logic
+    #region Class-to-Properties Mapping
 
     /// <summary>
-    /// Обновляет состояния многострочного режима
+    /// Автоматически обновляет свойства на основе установленных классов стилей
     /// </summary>
-    private void UpdateMultiLineStates()
+    private void UpdatePropertiesFromClasses()
     {
-        if (!IsMultiLine)
-        {
-            HasMinRows = false;
-            HasMaxRows = false;
-            IsFlexible = false;
-            return;
-        }
+        if (_isUpdatingFromClasses) return;
 
-        HasMinRows = MinRows.HasValue && !MaxRows.HasValue;
-        HasMaxRows = MaxRows.HasValue && !MinRows.HasValue;
-        IsFlexible = !MinRows.HasValue && !MaxRows.HasValue;
+        _isUpdatingFromClasses = true;
+        try
+        {
+            // Определяем MultiLine режим по наличию классов MultiLine
+            bool hasMultiLineClass = Classes.Contains("Flexible") ||
+                                   Classes.Contains("MinRow") ||
+                                   Classes.Contains("MaxRow");
+
+            if (hasMultiLineClass != IsMultiLine)
+            {
+                SetCurrentValue(IsMultiLineProperty, hasMultiLineClass);
+            }
+
+            // Определяем тип MultiLine режима
+            if (Classes.Contains("MaxRow"))
+            {
+                HasMaxRows = true;
+                HasMinRows = false;
+            }
+            else if (Classes.Contains("MinRow"))
+            {
+                HasMaxRows = false;
+                HasMinRows = true;
+            }
+            else if (Classes.Contains("Flexible"))
+            {
+                HasMaxRows = false;
+                HasMinRows = false;
+            }
+            else
+            {
+                // Если нет MultiLine классов - сбрасываем оба свойства
+                HasMaxRows = false;
+                HasMinRows = false;
+            }
+        }
+        finally
+        {
+            _isUpdatingFromClasses = false;
+        }
     }
 
     /// <summary>
@@ -262,56 +191,6 @@ public class TextField : TextBox
     {
         AcceptsReturn = IsMultiLine;
     }
-
-    /// <summary>
-    /// Обновляет высоту поля в многострочном режиме
-    /// </summary>
-    private void UpdateMultiLineHeight()
-    {
-        UpdateMultiLineStates();
-
-        if (!IsMultiLine)
-        {
-            ClearValue(MinHeightProperty);
-            ClearValue(MaxHeightProperty);
-            ClearValue(HeightProperty);
-            return;
-        }
-
-        double lineHeight = FontSize * 1.55;
-        double verticalPadding = GetVerticalPadding();
-
-        if (HasMaxRows)
-        {
-            var maxHeight = (lineHeight * MaxRows!.Value) + verticalPadding;
-            SetCurrentValue(MinHeightProperty, 0);
-            SetCurrentValue(MaxHeightProperty, maxHeight);
-            SetCurrentValue(HeightProperty, double.NaN);
-        }
-        else if (HasMinRows)
-        {
-            SetCurrentValue(MinHeightProperty, (lineHeight * MinRows!.Value) - 10);
-            ClearValue(MaxHeightProperty);
-            SetCurrentValue(HeightProperty, double.NaN);
-        }
-        else if (IsFlexible)
-        {
-            SetCurrentValue(MinHeightProperty, lineHeight);
-            ClearValue(MaxHeightProperty);
-            SetCurrentValue(HeightProperty, double.NaN);
-        }
-    }
-
-    /// <summary>
-    /// Возвращает вертикальные отступы в зависимости от варианта оформления
-    /// </summary>
-    private double GetVerticalPadding() => Variant switch
-    {
-        FieldVariant.Standard => 30,
-        FieldVariant.Filled => 30,
-        FieldVariant.Outlined => 22,
-        _ => 30
-    };
 
     #endregion
 
@@ -329,8 +208,6 @@ public class TextField : TextBox
         _textPresenter.RenderTransform = new TranslateTransform();
 
         _scrollViewer.ScrollChanged += OnScrollViewerScrollChanged;
-
-        Dispatcher.UIThread.Post(UpdateCustomScrollBar, DispatcherPriority.Loaded);
     }
 
     /// <summary>
@@ -350,8 +227,9 @@ public class TextField : TextBox
         var textLayout = _textPresenter.TextLayout;
         if (textLayout == null) return;
 
-        var textHeight = textLayout.Height;
         var viewportHeight = _scrollViewer.Bounds.Height;
+        var textHeight = textLayout.Height;
+
         bool shouldShowScroll = textHeight > viewportHeight && viewportHeight > 0;
 
         if (shouldShowScroll)
@@ -380,7 +258,6 @@ public class TextField : TextBox
         _customScrollBar.Maximum = scrollableHeight;
         _customScrollBar.ViewportSize = viewportHeight;
         _customScrollBar.LargeChange = viewportHeight;
-        _customScrollBar.SmallChange = 16;
 
         if (!_isScrollingFromCustomBar)
         {
@@ -418,6 +295,8 @@ public class TextField : TextBox
             double currentScrollOffset = Math.Max(0, -currentTransformY);
             currentScrollOffset = Math.Min(scrollableHeight, currentScrollOffset);
 
+            // Значение скроллбара инвертируется, т.к. в UI верх считается нулём,
+            // а Transform.Y работает в отрицательной системе координат.
             double scrollBarValue = scrollableHeight - currentScrollOffset;
             _customScrollBar.Value = Math.Max(0, Math.Min(scrollableHeight, scrollBarValue));
         }
@@ -430,49 +309,6 @@ public class TextField : TextBox
 
     #endregion
 
-    #region Text Container Management
-
-    /// <summary>
-    /// Обновляет отступы текстового контейнера в зависимости от варианта и состояния
-    /// </summary>
-    private void UpdateTextContainerPadding()
-    {
-        if (_textContainer == null) return;
-
-        if (!IsMultiLine)
-        {
-            _textContainer.Padding = new Thickness(0);
-            return;
-        }
-
-        // Для small размера используем нулевые отступы, чтобы избежать двойного отступа
-        if (Size == FieldSize.Small)
-        {
-            var padding = Variant switch
-            {
-                FieldVariant.Standard => new Thickness(0, 0, 0, 0),
-                FieldVariant.Filled => new Thickness(0, 0, 0, 0),
-                FieldVariant.Outlined => new Thickness(0, 0, 0, 0),
-                _ => new Thickness(0, 0, 0, 0)
-            };
-            _textContainer.Padding = padding;
-        }
-        else
-        {
-            // Для medium размера оставляем оригинальные отступы
-            var padding = Variant switch
-            {
-                FieldVariant.Standard => new Thickness(0, 22, 0, 0),
-                FieldVariant.Filled => new Thickness(0, 22, 0, 0),
-                FieldVariant.Outlined => new Thickness(0, 14, 0, 0),
-                _ => new Thickness(0, 22, 0, 0)
-            };
-            _textContainer.Padding = padding;
-        }
-    }
-
-    #endregion
-
     #region Event Handlers
 
     /// <summary>
@@ -480,12 +316,9 @@ public class TextField : TextBox
     /// </summary>
     private void OnCustomScrollBarValueChanged(object? sender, RangeBaseValueChangedEventArgs e)
     {
-        if (_textPresenter != null && _customScrollBar != null && sender == _customScrollBar)
-        {
-            _isScrollingFromCustomBar = true;
-            HandleScrollBarValueChange();
-            _isScrollingFromCustomBar = false;
-        }
+        _isScrollingFromCustomBar = true;
+        HandleScrollBarValueChange();
+        _isScrollingFromCustomBar = false;
     }
 
     /// <summary>
@@ -501,9 +334,10 @@ public class TextField : TextBox
     /// </summary>
     private void OnTextPresenterPointerWheelChanged(object? sender, PointerWheelEventArgs e)
     {
-        if (_customScrollBar != null && IsMultiLine && HasMaxRows && _customScrollBar.IsHitTestVisible)
+        if (IsMultiLine && HasMaxRows && _scrollViewer != null && _customScrollBar.IsHitTestVisible)
         {
-            double delta = e.Delta.Y * 30;
+            double scrollWheelSpeed = GetScrollWheelSpeed();
+            double delta = e.Delta.Y * scrollWheelSpeed;
             double newValue = Math.Max(_customScrollBar.Minimum,
                                      Math.Min(_customScrollBar.Maximum, _customScrollBar.Value + delta));
 
@@ -515,12 +349,21 @@ public class TextField : TextBox
         }
     }
 
+    /// <summary>
+    /// Возвращает скорость прокрутки колесиком мыши из ресурсов
+    /// </summary>
+    private double GetScrollWheelSpeed()
+    {
+        var resource = this.FindResource("ScrollWheelSpeed");
+        return resource is double speed ? speed : 20.0;
+    }
+
     /// <inheritdoc/>
     protected override void OnTextInput(TextInputEventArgs e)
     {
         base.OnTextInput(e);
 
-        if (IsMultiLine && HasMaxRows && _customScrollBar != null && _textPresenter != null)
+        if (IsMultiLine && HasMaxRows)
         {
             Dispatcher.UIThread.Post(HandleTextInputScroll, DispatcherPriority.Render);
         }
@@ -534,7 +377,6 @@ public class TextField : TextBox
     protected override void OnSizeChanged(SizeChangedEventArgs e)
     {
         base.OnSizeChanged(e);
-        UpdateTextContainerPadding();
         Dispatcher.UIThread.Post(UpdateCustomScrollBar);
     }
 
@@ -557,44 +399,17 @@ public class TextField : TextBox
         _scrollViewer = e.NameScope.Find<ScrollViewer>("PART_ScrollViewer");
         _textPresenter = e.NameScope.Find<TextPresenter>("PART_TextPresenter");
         _customScrollBar = e.NameScope.Find<ScrollBar>("PART_CustomScrollBar");
-        _textContainer = e.NameScope.Find<Border>("PART_TextContainer");
 
-        UpdateTextContainerPadding();
+        // Отписываемся перед подпиской (защита от дублирования)
+        _customScrollBar.ValueChanged -= OnCustomScrollBarValueChanged;
+        _customScrollBar.ValueChanged += OnCustomScrollBarValueChanged;
 
-        if (_scrollViewer != null && _customScrollBar != null && _textPresenter != null)
-        {
-            _customScrollBar.ValueChanged += OnCustomScrollBarValueChanged;
-            _textPresenter.PointerWheelChanged += OnTextPresenterPointerWheelChanged;
-        }
+        _textPresenter.PointerWheelChanged -= OnTextPresenterPointerWheelChanged;
+        _textPresenter.PointerWheelChanged += OnTextPresenterPointerWheelChanged;
     }
 
     /// <summary>
-    /// Обрабатывает изменения свойств
-    /// </summary>
-    private void HandlePropertyChanges(AvaloniaPropertyChangedEventArgs change)
-    {
-        if (change.Property == IsMultiLineProperty ||
-            change.Property == MinRowsProperty ||
-            change.Property == MaxRowsProperty ||
-            change.Property == FontSizeProperty ||
-            change.Property == VariantProperty)
-        {
-            UpdateMultiLineStates();
-            UpdateMultiLineHeight();
-            UpdateTextContainerPadding();
-        }
-
-        if (change.Property == TextProperty ||
-            change.Property == IsMultiLineProperty ||
-            change.Property == MinRowsProperty ||
-            change.Property == MaxRowsProperty)
-        {
-            Dispatcher.UIThread.Post(UpdateCustomScrollBar);
-        }
-    }
-
-    /// <summary>
-    /// Обрабатывает изменение значения скроллбара
+    /// Обновляет визуальное состояние скроллбара, приводя позицию текста в соответствие с текущим значением
     /// </summary>
     private void HandleScrollBarValueChange()
     {
@@ -629,7 +444,8 @@ public class TextField : TextBox
     }
 
     /// <summary>
-    /// Обрабатывает автоматическую прокрутку при вводе текста
+    /// Реагирует на ввод текста, автоматически прокручивая контент вниз,
+    /// если достигнут предел высоты и включён режим MaxRows.
     /// </summary>
     private void HandleTextInputScroll()
     {
