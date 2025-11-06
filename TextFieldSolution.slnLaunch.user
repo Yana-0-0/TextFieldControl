@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Новый профиль",
+    "Projects": [
+      {
+        "Path": "TextFieldControl\\TextFieldControl.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "TextFieldDemo\\TextFieldDemo.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

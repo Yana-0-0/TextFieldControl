@@ -1,0 +1,170 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:TextFieldControl.Controls"
+        x:Class="TextFieldDemo.MainWindow"
+        Title="TextField Component - Complete Test Suite"
+        Width="1200"
+        Height="600"
+        MinHeight="600"
+        Background="#FAFAFA">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+        <StackPanel Spacing="30" Margin="40" MaxWidth="1100">
+            <!-- РАЗМЕРЫ: MEDIUM vs SMALL -->
+            <Border Background="White" Padding="20" CornerRadius="8" BoxShadow="0 2 8 0 #1A000000">
+                <StackPanel Spacing="15">
+                    <TextBlock Text="Size Comparison - Medium vs Small" FontWeight="Bold" FontSize="18"/>
+                    
+                    <Grid ColumnDefinitions="1*,1*,1*,1*" ColumnSpacing="30">
+                        <StackPanel Grid.Column="0" Spacing="5">
+                            <controls:TextField Variant="Standard" Text="Value"/>
+                            <controls:TextField Variant="Filled" Text="Value"/>
+                            <controls:TextField Variant="Outlined" Text="Value"/>
+
+                            <controls:TextField Variant="Standard" Text="Value" IsError="True"/>
+                            <controls:TextField Variant="Filled" Text="Value" IsError="True"/>
+                            <controls:TextField Variant="Outlined" Text="Value" IsError="True"/>
+
+                            <controls:TextField Variant="Standard" Text="Value" IsEnabled="False"/>
+                            <controls:TextField Variant="Filled" Text="Value" IsEnabled="False"/>
+                            <controls:TextField Variant="Outlined" Text="Value" IsEnabled="False"/>
+                        </StackPanel>
+                        
+                        <StackPanel Grid.Column="1" Spacing="5">
+                            <controls:TextField Variant="Standard" Size="Small" Text="Value"/>
+                            <controls:TextField Variant="Filled" Size="Small" Text="Value"/>
+                            <controls:TextField Variant="Outlined" Size="Small" Text="Value"/>
+
+                            <controls:TextField Variant="Standard" Size="Small" Text="Value" IsError="True"/>
+                            <controls:TextField Variant="Filled" Size="Small" Text="Value" IsError="True"/>
+                            <controls:TextField Variant="Outlined" Size="Small" Text="Value" IsError="True"/>
+
+                            <controls:TextField Variant="Standard" Size="Small" Text="Value" IsEnabled="False"/>
+                            <controls:TextField Variant="Filled" Size="Small" Text="Value" IsEnabled="False"/>
+                            <controls:TextField Variant="Outlined" Size="Small" Text="Value" IsEnabled="False"/>
+                        </StackPanel>
+                        
+                        <StackPanel Grid.Column="2" Spacing="5">
+                            <controls:TextField Variant="Standard"/>
+                            <controls:TextField Variant="Filled"/>
+                            <controls:TextField Variant="Outlined"/>
+
+                            <controls:TextField Variant="Standard" IsError="True"/>
+                            <controls:TextField Variant="Filled" IsError="True"/>
+                            <controls:TextField Variant="Outlined" IsError="True"/>
+
+                            <controls:TextField Variant="Standard" IsEnabled="False"/>
+                            <controls:TextField Variant="Filled" IsEnabled="False"/>
+                            <controls:TextField Variant="Outlined" IsEnabled="False"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="3" Spacing="5">
+                            <controls:TextField Variant="Standard" Size="Small"/>
+                            <controls:TextField Variant="Filled" Size="Small"/>
+                            <controls:TextField Variant="Outlined" Size="Small"/>
+                            <controls:TextField Variant="Standard" Size="Small" IsError="True"/>
+                            <controls:TextField Variant="Filled" Size="Small" IsError="True"/>
+                            <controls:TextField Variant="Outlined" Size="Small" IsError="True"/>
+
+                            <controls:TextField Variant="Standard" Size="Small" IsEnabled="False"/>
+                            <controls:TextField Variant="Filled" Size="Small" IsEnabled="False"/>
+                            <controls:TextField Variant="Outlined" Size="Small" IsEnabled="False"/>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Border> 
+            <!-- MULTILINE: ГИБКИЕ ПОЛЯ  
+            <Border Background="White" Padding="20" CornerRadius="8" BoxShadow="0 2 8 0 #1A000000">
+                <StackPanel Spacing="15">
+                    <TextBlock Text="MultiLine - Flexible Height" FontWeight="Bold" FontSize="18"/>
+                    
+                    <Grid ColumnDefinitions="1*,1*,1*" ColumnSpacing="30">
+                        <StackPanel Grid.Column="0" Spacing="8">
+                            <TextBlock Text="Standard MultiLine" FontWeight="SemiBold" FontSize="14"/>
+                            <controls:TextField Variant="Standard" Label="Flexible Field" IsMultiLine="True" 
+                                              Text="First line of text&#x0a;Second line&#x0a;Third line"/>
+                             <controls:TextField Variant="Standard" Label="Flexible Field" IsMultiLine="True" Size="Small"
+                                              Text="First line of text&#x0a;Second line&#x0a;Third line"/>
+                        </StackPanel>
+                        
+                        <StackPanel Grid.Column="1" Spacing="8">
+                            <TextBlock Text="Filled MultiLine" FontWeight="SemiBold" FontSize="14"/>
+                            <controls:TextField Variant="Filled" Label="Flexible Field" IsMultiLine="True"
+                                              Text="First line&#x0a;Second line&#x0a;Third line&#x0a;Fourth line"/>
+                            <controls:TextField Variant="Filled" Label="Flexible Field" IsMultiLine="True" Size="Small"
+                                              Text="First line&#x0a;Second line&#x0a;Third line&#x0a;line 4"/>
+                        </StackPanel>
+                        
+                        <StackPanel Grid.Column="2" Spacing="8">
+                            <TextBlock Text="Outlined MultiLine" FontWeight="SemiBold" FontSize="14"/>
+                            <controls:TextField Variant="Outlined" Label="Flexible Field" IsMultiLine="True"
+                                              Text="Multi-line&#x0a;text field&#x0a;with outline&#x0a;border style"/>
+                            <controls:TextField Variant="Outlined" Label="Flexible Field" IsMultiLine="True" Size="Small"
+                                              Text="Multi-line&#x0a;text field&#x0a;with outline&#x0a;border style"/>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Border>  -->
+
+            <!-- MULTILINE: MIN ROWS 
+            <Border Background="White" Padding="20" CornerRadius="8" BoxShadow="0 2 8 0 #1A000000">
+                <StackPanel Spacing="15">
+                    <TextBlock Text="MultiLine - Minimum Rows" FontWeight="Bold" FontSize="18"/>
+                    
+                    <Grid ColumnDefinitions="1*,1*,1*" ColumnSpacing="30">
+                        <StackPanel Grid.Column="0" Spacing="8">
+                            <TextBlock Text="Min Rows = 4" FontWeight="SemiBold" FontSize="14"/>
+                            <controls:TextField Variant="Standard" Label="Min 4 Rows" IsMultiLine="True" MinRows="4" 
+                                              Text="Line 1&#x0a;Line 2"/>
+                            <controls:TextField Variant="Standard" Label="Min 4 Rows" IsMultiLine="True" MinRows="4" Size="Small"
+                                              Text="Line 1&#x0a;Line 2"/>
+                        </StackPanel>
+                        
+                        <StackPanel Grid.Column="1" Spacing="8">
+                            <TextBlock Text="Min Rows = 6" FontWeight="SemiBold" FontSize="14"/>
+                            <controls:TextField Variant="Filled" Label="Min 6 Rows" IsMultiLine="True" MinRows="6"
+                                              Text="Line 1&#x0a;Line 2&#x0a;Line 3"/>
+                            <controls:TextField Variant="Filled" Label="Min 6 Rows" IsMultiLine="True" MinRows="6" Size="Small"
+                                              Text="Line 1&#x0a;Line 2&#x0a;Line 3"/>
+                        </StackPanel>
+                        
+                        <StackPanel Grid.Column="2" Spacing="8">
+                            <TextBlock Text="Min Rows = 8" FontWeight="SemiBold" FontSize="14"/>
+                            <controls:TextField Variant="Outlined" Label="Min 8 Rows" IsMultiLine="True" MinRows="8"/>
+                            <controls:TextField Variant="Outlined" Label="Min 8 Rows" IsMultiLine="True" MinRows="8" Size="Small"/>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Border>  -->
+            <!-- MULTILINE: MAX ROWS (со скроллом) -->
+            <Border Background="White" Padding="20" CornerRadius="8" BoxShadow="0 2 8 0 #1A000000">
+                <StackPanel Spacing="15">
+                    <TextBlock Text="MultiLine - Maximum Rows (with Scroll)" FontWeight="Bold" FontSize="18"/>
+                    
+                    <Grid ColumnDefinitions="1*,1*,1*" ColumnSpacing="30">
+                        <StackPanel Grid.Column="0" Spacing="8">
+                            <TextBlock Text="Max Rows = 4" FontWeight="SemiBold" FontSize="14"/>
+                            <controls:TextField Variant="Standard" Label="Max 4 Rows" IsMultiLine="True" MaxRows="4"
+                                              Text="Line 1&#x0a;Line 2&#x0a;Line 3&#x0a;Line 4"/>
+                            <controls:TextField Variant="Standard" Label="Max 4 Rows Empty" IsMultiLine="True" MaxRows="4" Size="Small"/>
+                        </StackPanel>
+                        
+                        <StackPanel Grid.Column="1" Spacing="8">
+                            <TextBlock Text="Max Rows = 6" FontWeight="SemiBold" FontSize="14"/>
+                            <controls:TextField Variant="Filled" Label="Max 6 Rows" IsMultiLine="True" MaxRows="6"
+                                              Text="Line 1&#x0a;Line 2&#x0a;Line 3&#x0a;Line 4&#x0a;Line 5&#x0a;Line 6"/>
+                            <controls:TextField Variant="Filled" Label="Max 6 Rows Empty" IsMultiLine="True" MaxRows="6" Size="Small"/>
+                        </StackPanel>
+                        
+                        <StackPanel Grid.Column="2" Spacing="8">
+                            <TextBlock Text="Max Rows = 8" FontWeight="SemiBold" FontSize="14"/>
+                            <controls:TextField Variant="Outlined" Label="Max 8 Rows" IsMultiLine="True" MaxRows="8"
+                                              Text="Line 1&#x0a;Line 2&#x0a;Line 3&#x0a;Line 4&#x0a;Line 5&#x0a;Line 6&#x0a;Line 7&#x0a;Line 8"/>
+                            <controls:TextField Variant="Outlined" Label="Max 8 Rows Empty" IsMultiLine="True" MaxRows="8" Size="Small"/>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Window>

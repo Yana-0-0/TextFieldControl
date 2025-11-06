@@ -1,0 +1,613 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="using:TextFieldControl.Controls">
+
+    <!-- ÐÅÑÓÐÑÛ ÖÂÅÒÎÂ -->
+    <Color x:Key="StandardBackgroundColor">White</Color>
+    <Color x:Key="FilledBackgroundColor">#F0F0F0</Color>
+    <Color x:Key="OutlinedBackgroundColor">White</Color>
+    <Color x:Key="ScrollBarBackgroundColor">#E8E8E8</Color>
+    
+    <Color x:Key="BorderColorEnabled">#C4C4C4</Color>
+    <Color x:Key="BorderColorHover">Black</Color>
+    <Color x:Key="BorderColorFocused">#1976D2</Color>
+    <Color x:Key="BorderColorError">#D32F2F</Color>
+    <Color x:Key="BorderColorDisabled">#CFCFCF</Color>
+    
+    <Color x:Key="LabelColorEnabled">#757575</Color>
+    <Color x:Key="LabelColorFocused">#1976D2</Color>
+    <Color x:Key="LabelColorError">#D32F2F</Color>
+    <Color x:Key="LabelColorDisabled">#9E9E9E</Color>
+    <Color x:Key="TextColorDisabled">#9E9E9E</Color>
+
+    <!-- Ðåñóðñ äëÿ ïóíêòèðíîé ãðàíèöû â ñîñòîÿíèè disabled -->
+    <DrawingBrush x:Key="TextField.Border.Disabled.Dotted"
+                  DestinationRect="0,0,8,2"
+                  Stretch="None"
+                  TileMode="Tile">
+        <DrawingBrush.Drawing>
+            <GeometryDrawing Brush="{StaticResource BorderColorDisabled}">
+                <GeometryDrawing.Geometry>
+                    <GeometryGroup>
+                        <RectangleGeometry Rect="1,0.5,1,1"/>
+                        <RectangleGeometry Rect="3.5,0.5,1,1"/>
+                        <RectangleGeometry Rect="6,0.5,1,1"/>
+                    </GeometryGroup>
+                </GeometryDrawing.Geometry>
+            </GeometryDrawing>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <!-- ÐÀÇÌÅÐÛ -->
+    <x:Double x:Key="MediumHeight">46</x:Double>
+    <x:Double x:Key="SmallHeight">40</x:Double>
+    <x:Double x:Key="MediumFontSize">16</x:Double>
+    <x:Double x:Key="SmallFontSize">16</x:Double>
+
+    <!-- ÐÅÑÓÐÑÛ ÎÒÑÒÓÏÎÂ -->
+    
+    <!-- Standard âàðèàíò -->
+    <Thickness x:Key="TextPaddingStandardNoValue">0,16,0,16</Thickness>
+    <Thickness x:Key="TextPaddingStandardWithValue">0,22,0,10</Thickness>
+    <Thickness x:Key="TextPaddingSmallStandardNoValue">0,12,0,12</Thickness>
+    <Thickness x:Key="TextPaddingSmallStandardWithValue">0,18,0,6</Thickness>
+    
+    <!-- Filled âàðèàíò -->
+    <Thickness x:Key="TextPaddingFilledNoValue">12,16,12,16</Thickness>
+    <Thickness x:Key="TextPaddingFilledWithValue">12,22,12,10</Thickness>
+    <Thickness x:Key="TextPaddingSmallFilledNoValue">12,12,12,12</Thickness>
+    <Thickness x:Key="TextPaddingSmallFilledWithValue">12,18,12,6</Thickness>
+    
+    <!-- Outlined âàðèàíò (âñåãäà ðàâíûå îòñòóïû ñâåðõó/ñíèçó) -->
+    <Thickness x:Key="TextPaddingOutlinedNoValue">12,16,12,16</Thickness>
+    <Thickness x:Key="TextPaddingOutlinedWithValue">12,16,12,16</Thickness>
+    <Thickness x:Key="TextPaddingSmallOutlinedNoValue">12,12,12,12</Thickness>
+    <Thickness x:Key="TextPaddingSmallOutlinedWithValue">12,12,12,12</Thickness>
+    
+    <!-- MultiLine îòñòóïû -->
+    <Thickness x:Key="TextPaddingMultiLineStandardMedium">0,0,2,10</Thickness>
+    <Thickness x:Key="TextPaddingMultiLineStandardSmall">0,0,2,6</Thickness>
+    <Thickness x:Key="TextPaddingMultiLineFilledMedium">12,0,2,10</Thickness>
+    <Thickness x:Key="TextPaddingMultiLineFilledSmall">12,0,2,6</Thickness>
+    <Thickness x:Key="TextPaddingMultiLineOutlinedMedium">12,0,2,10</Thickness>
+    <Thickness x:Key="TextPaddingMultiLineOutlinedSmall">12,0,2,6</Thickness>
+    
+    <!-- Îòñòóïû äëÿ Label -->
+    <Thickness x:Key="LabelMarginStandard">0,16,2,10</Thickness>
+    <Thickness x:Key="LabelMarginSmallStandard">0,12,2,6</Thickness>
+    <Thickness x:Key="LabelMarginStandardWithValue">0,4,2,0</Thickness>
+    <Thickness x:Key="LabelMarginSmallStandardWithValue">0,2,2,0</Thickness>
+    
+    <Thickness x:Key="LabelMarginFilled">12,16,2,10</Thickness>
+    <Thickness x:Key="LabelMarginSmallFilled">12,12,2,6</Thickness>
+    <Thickness x:Key="LabelMarginFilledWithValue">12,4,2,0</Thickness>
+    <Thickness x:Key="LabelMarginSmallFilledWithValue">12,2,2,0</Thickness>
+    
+    <!-- Outlined Label îòñòóïû -->
+    <Thickness x:Key="OutlinedLabelMarginEmpty">8,0,0,0</Thickness>
+    <Thickness x:Key="OutlinedLabelMarginWithValue">8,-10,0,0</Thickness>
+    
+    <!-- MultiLine MinRows äîïîëíèòåëüíûå îòñòóïû äëÿ Label -->
+    <Thickness x:Key="LabelMarginMultiLineMinRowsStandard">0,20,2,10</Thickness>
+    <Thickness x:Key="LabelMarginMultiLineMinRowsSmall">0,16,2,6</Thickness>
+    <Thickness x:Key="LabelMarginMultiLineMinRowsFilled">12,20,2,10</Thickness>
+    <Thickness x:Key="LabelMarginMultiLineMinRowsSmallFilled">12,16,2,6</Thickness>
+    <Thickness x:Key="OutlinedLabelMarginMultiLineMinRows">8,12,0,0</Thickness>
+
+    <ControlTheme x:Key="{x:Type controls:TextField}" TargetType="controls:TextField">
+        <Setter Property="Background" Value="{StaticResource StandardBackgroundColor}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderColorEnabled}"/>
+        <Setter Property="BorderThickness" Value="0,0,0,2"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="MinHeight" Value="{StaticResource MediumHeight}"/>
+        <Setter Property="FontSize" Value="{StaticResource MediumFontSize}"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="CaretBrush" Value="Black"/>
+        <Setter Property="SelectionBrush" Value="#2F50C7"/>
+        <Setter Property="SelectionForegroundBrush" Value="White"/>
+        
+        <Setter Property="Template">
+            <ControlTemplate TargetType="controls:TextField">
+                <DataValidationErrors>
+                    <Grid Margin="0,6,0,0">
+                        <Border Name="PART_BorderElement"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                ClipToBounds="False">
+                            
+                            <Grid ClipToBounds="False">
+                                <!-- Outlined Label Container -->
+                                <Border Name="PART_OutlinedLabelContainer"
+                                        Background="Transparent"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        CornerRadius="2"
+                                        IsHitTestVisible="False"
+                                        IsVisible="False">
+                                    <TextBlock Name="PART_OutlinedLabel"
+                                               Text="{TemplateBinding Label}"
+                                               Foreground="{StaticResource LabelColorEnabled}"
+                                               FontSize="16"
+                                               Margin="4,0,4,0"/>
+                                </Border>
+                                
+                                <!-- Standard/Filled Label -->
+                                <TextBlock Name="PART_Label"
+                                           Text="{TemplateBinding Label}"
+                                           Foreground="{StaticResource LabelColorEnabled}"
+                                           FontSize="14"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Left"
+                                           Margin="0,16,0,16"
+                                           IsHitTestVisible="False"/>
+                                
+                                <!-- Grid äëÿ ScrollViewer è êàñòîìíîãî ScrollBar -->
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <Border Grid.Column="0"
+                                            Name="PART_TextContainer"
+                                            Background="Transparent"
+                                            ClipToBounds="True">
+                                        <!-- ScrollViewer çàíèìàåò îñíîâíîå ïðîñòðàíñòâî -->
+                                        <ScrollViewer Name="PART_ScrollViewer"
+                                                      VerticalScrollBarVisibility="Hidden"
+                                                      HorizontalScrollBarVisibility="Disabled"
+                                                      VerticalAlignment="Stretch"
+                                                      HorizontalAlignment="Stretch"
+                                                      Background="Transparent"
+                                                      ClipToBounds="True">
+                                            <TextPresenter Name="PART_TextPresenter"
+                                                           Text="{TemplateBinding Text, Mode=TwoWay}"
+                                                           CaretBrush="{TemplateBinding CaretBrush}"
+                                                           SelectionBrush="{TemplateBinding SelectionBrush}"
+                                                           SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                                           Background="Transparent"
+                                                           TextWrapping="Wrap"
+                                                           CaretIndex="{TemplateBinding CaretIndex}"
+                                                           SelectionStart="{TemplateBinding SelectionStart}"
+                                                           SelectionEnd="{TemplateBinding SelectionEnd}"
+                                                           IsHitTestVisible="True"
+                                                           VerticalAlignment="Top"
+                                                           ClipToBounds="False"/>
+                                        </ScrollViewer>
+                                    </Border>
+                                    <!-- Êàñòîìíûé ScrollBar -->
+                                    <ScrollBar Name="PART_CustomScrollBar"
+                                               Grid.Column="1"
+                                               Orientation="Vertical"
+                                               Width="16"
+                                               VerticalAlignment="Stretch"
+                                               HorizontalAlignment="Right"
+                                               Opacity="0"
+                                               IsHitTestVisible="False"
+                                               Minimum="0"
+                                               Maximum="100"
+                                               ViewportSize="100"/>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </DataValidationErrors>
+            </ControlTemplate>
+        </Setter>
+
+        <!-- Ñòèëü äëÿ êàñòîìíîãî ScrollBar -->
+        <Style Selector="^ /template/ ScrollBar#PART_CustomScrollBar">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <ControlTemplate TargetType="ScrollBar">
+                    <Border Background="{StaticResource ScrollBarBackgroundColor}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Track Name="PART_Track"
+                               IsDirectionReversed="False"
+                               Minimum="{TemplateBinding Minimum}"
+                               Maximum="{TemplateBinding Maximum}"
+                               Orientation="{TemplateBinding Orientation}"
+                               Value="{TemplateBinding Value, Mode=TwoWay}"
+                               ViewportSize="{TemplateBinding ViewportSize}">
+                            <Track.Thumb>
+                                <Thumb Name="PART_Thumb"
+                                       Background="{StaticResource BorderColorEnabled}"
+                                       BorderBrush="Transparent"
+                                       BorderThickness="1"
+                                       Width="8"
+                                       MinHeight="20">
+                                    <Thumb.Styles>
+                                        <Style Selector="Thumb">
+                                            <Setter Property="Template">
+                                                <ControlTemplate TargetType="Thumb">
+                                                    <Border Background="{TemplateBinding Background}"
+                                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                                            CornerRadius="4"/>
+                                                </ControlTemplate>
+                                            </Setter>
+                                        </Style>
+                                    </Thumb.Styles>
+                                </Thumb>
+                            </Track.Thumb>
+                        </Track>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <!-- === ÁÀÇÎÂÛÅ ÑÒÈËÈ È ÐÀÇÌÅÐÛ === -->
+        <Style Selector="^[Size=Small]">
+            <Setter Property="MinHeight" Value="{StaticResource SmallHeight}"/>
+        </Style>
+
+        <Style Selector="^[Size=Medium]">
+            <Setter Property="MinHeight" Value="{StaticResource MediumHeight}"/>
+        </Style>
+
+        <!-- === ÂÀÐÈÀÍÒÛ ÎÔÎÐÌËÅÍÈß === -->
+        <Style Selector="^[Variant=Standard]">
+            <Setter Property="Background" Value="{StaticResource StandardBackgroundColor}"/>
+            <Setter Property="BorderThickness" Value="0,0,0,2"/>
+            <Setter Property="CornerRadius" Value="4,4,0,0"/>
+        </Style>
+
+        <Style Selector="^[Variant=Filled]">
+            <Setter Property="Background" Value="{StaticResource FilledBackgroundColor}"/>
+            <Setter Property="BorderThickness" Value="0,0,0,2"/>
+            <Setter Property="CornerRadius" Value="4,4,0,0"/>
+        </Style>
+
+        <Style Selector="^[Variant=Outlined]">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="CornerRadius" Value="4"/>
+        </Style>
+
+        <!-- === ÓÏÐÀÂËÅÍÈÅ ÂÈÄÈÌÎÑÒÜÞ LABEL === -->
+        <Style Selector="^[Variant=Outlined] /template/ Border#PART_OutlinedLabelContainer">
+            <Setter Property="IsVisible" Value="True"/>
+        </Style>
+
+        <Style Selector="^[Variant=Outlined] /template/ TextBlock#PART_Label">
+            <Setter Property="IsVisible" Value="False"/>
+        </Style>
+
+        <Style Selector="^[Variant=Standard] /template/ Border#PART_OutlinedLabelContainer,
+                         ^[Variant=Filled] /template/ Border#PART_OutlinedLabelContainer">
+            <Setter Property="IsVisible" Value="False"/>
+        </Style>
+
+        <Style Selector="^[Variant=Standard] /template/ TextBlock#PART_Label,
+                         ^[Variant=Filled] /template/ TextBlock#PART_Label">
+            <Setter Property="IsVisible" Value="True"/>
+        </Style>
+
+        <!-- === ÎÑÍÎÂÍÛÅ ÎÒÑÒÓÏÛ ÄËß ÒÅÊÑÒÀ === -->
+        
+        <!-- Standard âàðèàíò -->
+        <Style Selector="^[Variant=Standard]:empty /template/ TextPresenter#PART_TextPresenter">
+            <Setter Property="Margin" Value="{StaticResource TextPaddingStandardNoValue}"/>
+        </Style>
+
+        <Style Selector="^[Variant=Standard]:not(:empty) /template/ TextPresenter#PART_TextPresenter">
+            <Setter Property="Margin" Value="{StaticResource TextPaddingStandardWithValue}"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+        </Style>
+
+        <!-- Filled âàðèàíò -->
+        <Style Selector="^[Variant=Filled]:empty /template/ TextPresenter#PART_TextPresenter">
+            <Setter Property="Margin" Value="{StaticResource TextPaddingFilledNoValue}"/>
+        </Style>
+
+        <Style Selector="^[Variant=Filled]:not(:empty) /template/ TextPresenter#PART_TextPresenter">
+            <Setter Property="Margin" Value="{StaticResource TextPaddingFilledWithValue}"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+        </Style>
+
+        <!-- Outlined âàðèàíò -->
+        <Style Selector="^[Variant=Outlined] /template/ TextPresenter#PART_TextPresenter">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="^[Variant=Outlined]:empty /template/ TextPresenter#PART_TextPresenter">
+            <Setter Property="Margin" Value="{StaticResource TextPaddingOutlinedNoValue}"/>
+        </Style>
+
+        <Style Selector="^[Variant=Outlined]:not(:empty) /template/ TextPresenter#PART_TextPresenter">
+            <Setter Property="Margin" Value="{StaticResource TextPaddingOutlinedWithValue}"/>
+        </Style>
+
+        <!-- === ÎÒÑÒÓÏÛ ÄËß LABEL === -->
+        
+        <!-- Standard Label -->
+        <Style Selector="^[Variant=Standard]:empty /template/ TextBlock#PART_Label">
+            <Setter Property="Margin" Value="{StaticResource LabelMarginStandard}"/>
+        </Style>
+
+        <Style Selector="^[Variant=Standard]:not(:empty) /template/ TextBlock#PART_Label">
+            <Setter Property="Margin" Value="{StaticResource LabelMarginStandardWithValue}"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+
+        <!-- Filled Label -->
+        <Style Selector="^[Variant=Filled]:empty /template/ TextBlock#PART_Label">
+            <Setter Property="Margin" Value="{StaticResource LabelMarginFilled}"/>
+        </Style>
+
+        <Style Selector="^[Variant=Filled]:not(:empty) /template/ TextBlock#PART_Label">
+            <Setter Property="Margin" Value="{StaticResource LabelMarginFilledWithValue}"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+
+        <!-- Outlined Label -->
+        <Style Selector="^[Variant=Outlined]:empty /template/ Border#PART_OutlinedLabelContainer">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="{StaticResource OutlinedLabelMarginEmpty}"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+
+        <Style Selector="^[Variant=Outlined]:not(:empty) /template/ Border#PART_OutlinedLabelContainer">
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Margin" Value="{StaticResource OutlinedLabelMarginWithValue}"/>
+            <Setter Property="Background" Value="White"/>
+        </Style>
+
+        <Style Selector="^[Variant=Outlined]:not(:empty) /template/ TextBlock#PART_OutlinedLabel">
+            <Setter Property="FontSize" Value="11"/>
+        </Style>
+
+        <!-- === MULTILINE ËÎÃÈÊÀ === -->
+        
+        <!-- MultiLine Flexible/MaxRows: ïóñòûå ïîëÿ - Label ïî öåíòðó -->
+        <Style Selector="^[IsMultiLine=True][HasMinRows=False]:empty[Variant=Standard] /template/ TextBlock#PART_Label">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="{StaticResource LabelMarginStandard}"/>
+        </Style>
+
+        <Style Selector="^[IsMultiLine=True][HasMinRows=False]:empty[Variant=Filled] /template/ TextBlock#PART_Label">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="{StaticResource LabelMarginFilled}"/>
+        </Style>
+
+        <Style Selector="^[IsMultiLine=True][HasMinRows=False]:empty[Variant=Outlined] /template/ Border#PART_OutlinedLabelContainer">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="{StaticResource OutlinedLabelMarginEmpty}"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+
+        <!-- MultiLine Flexible/MaxRows: ñ òåêñòîì - Label ïîäíèìàåòñÿ -->
+        <Style Selector="^[IsMultiLine=True][HasMinRows=False][Variant=Standard]:not(:empty) /template/ TextBlock#PART_Label">
+            <Setter Property="Margin" Value="{StaticResource LabelMarginStandardWithValue}"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+
+        <Style Selector="^[IsMultiLine=True][HasMinRows=False][Variant=Filled]:not(:empty)/template/ TextBlock#PART_Label">
+            <Setter Property="Margin" Value="{StaticResource LabelMarginFilledWithValue}"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+
+        <Style Selector="^[IsMultiLine=True][HasMinRows=False][Variant=Outlined]:not(:empty) /template/ Border#PART_OutlinedLabelContainer">
+            <Setter Property="Margin" Value="{StaticResource OutlinedLabelMarginWithValue}"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Background" Value="White"/>
+        </Style>
+
+        <!-- MultiLine MinRows: ïóñòûå ïîëÿ - Label ñ äîïîëíèòåëüíûìè îòñòóïàìè -->
+        <Style Selector="^[IsMultiLine=True][HasMinRows=True][Size=Medium]:empty[Variant=Standard] /template/ TextBlock#PART_Label">
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Margin" Value="{StaticResource LabelMarginMultiLineMinRowsStandard}"/>
+        </Style>
+
+        <Style Selector="^[IsMultiLine=True][HasMinRows=True][Size=Small]:empty[Variant=Standard] /template/ TextBlock#PART_Label">
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Margin" Value="{StaticResource LabelMarginMultiLineMinRowsSmall}"/>
+        </Style>
+
+        <Style Selector="^[IsMultiLine=True][HasMinRows=True][Size=Medium]:empty[Variant=Filled] /template/ TextBlock#PART_Label">
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Margin" Value="{StaticResource LabelMarginMultiLineMinRowsFilled}"/>
+        </Style>
+
+        <Style Selector="^[IsMultiLine=True][HasMinRows=True][Size=Small]:empty[Variant=Filled] /template/ TextBlock#PART_Label">
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Margin" Value="{StaticResource LabelMarginMultiLineMinRowsSmallFilled}"/>
+        </Style>
+
+        <Style Selector="^[IsMultiLine=True][HasMinRows=True]:empty[Variant=Outlined] /template/ Border#PART_OutlinedLabelContainer">
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Margin" Value="{StaticResource OutlinedLabelMarginMultiLineMinRows}"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+
+        <!-- MultiLine MinRows: ñ òåêñòîì - Label ïîäíèìàåòñÿ -->
+        <Style Selector="^[IsMultiLine=True][HasMinRows=True][Variant=Standard]:not(:empty) /template/ TextBlock#PART_Label">
+            <Setter Property="Margin" Value="{StaticResource LabelMarginStandardWithValue}"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+
+        <Style Selector="^[IsMultiLine=True][HasMinRows=True][Variant=Filled]:not(:empty) /template/ TextBlock#PART_Label">
+            <Setter Property="Margin" Value="{StaticResource LabelMarginFilledWithValue}"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+
+        <Style Selector="^[IsMultiLine=True][HasMinRows=True][Variant=Outlined]:not(:empty)/template/ Border#PART_OutlinedLabelContainer">
+            <Setter Property="Margin" Value="{StaticResource OutlinedLabelMarginWithValue}"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Background" Value="White"/>
+        </Style>
+
+        <!-- MultiLine îòñòóïû òåêñòà -->
+        <Style Selector="^[IsMultiLine=True][Size=Medium][Variant=Standard] /template/ TextPresenter#PART_TextPresenter">
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+
+        <Style Selector="^[IsMultiLine=True][Size=Small][Variant=Standard] /template/ TextPresenter#PART_TextPresenter">
+            <Setter Property="Margin" Value="{StaticResource TextPaddingMultiLineStandardSmall}"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+
+        <Style Selector="^[IsMultiLine=True][Size=Medium][Variant=Filled] /template/ TextPresenter#PART_TextPresenter">
+            <Setter Property="Margin" Value="{StaticResource TextPaddingMultiLineFilledMedium}"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+
+        <Style Selector="^[IsMultiLine=True][Size=Small][Variant=Filled] /template/ TextPresenter#PART_TextPresenter">
+            <Setter Property="Margin" Value="{StaticResource TextPaddingMultiLineFilledSmall}"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+
+        <Style Selector="^[IsMultiLine=True][Size=Medium][Variant=Outlined] /template/ TextPresenter#PART_TextPresenter">
+            <Setter Property="Margin" Value="{StaticResource TextPaddingMultiLineOutlinedMedium}"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+
+        <Style Selector="^[IsMultiLine=True][Size=Small][Variant=Outlined] /template/ TextPresenter#PART_TextPresenter">
+            <Setter Property="Margin" Value="{StaticResource TextPaddingMultiLineOutlinedSmall}"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+
+        <!-- === SMALL ÐÀÇÌÅÐ === -->
+        
+        <!-- Small Text îòñòóïû -->
+        <Style Selector="^[Size=Small][Variant=Standard]:empty /template/ TextPresenter#PART_TextPresenter">
+            <Setter Property="Margin" Value="{StaticResource TextPaddingSmallStandardNoValue}"/>
+        </Style>
+
+        <Style Selector="^[Size=Small][Variant=Standard]:not(:empty) /template/ TextPresenter#PART_TextPresenter">
+            <Setter Property="Margin" Value="{StaticResource TextPaddingSmallStandardWithValue}"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+        </Style>
+
+        <Style Selector="^[Size=Small][Variant=Filled]:empty /template/ TextPresenter#PART_TextPresenter">
+            <Setter Property="Margin" Value="{StaticResource TextPaddingSmallFilledNoValue}"/>
+        </Style>
+
+        <Style Selector="^[Size=Small][Variant=Filled]:not(:empty) /template/ TextPresenter#PART_TextPresenter">
+            <Setter Property="Margin" Value="{StaticResource TextPaddingSmallFilledWithValue}"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+        </Style>
+
+        <Style Selector="^[Size=Small][Variant=Outlined]:empty /template/ TextPresenter#PART_TextPresenter">
+            <Setter Property="Margin" Value="{StaticResource TextPaddingSmallOutlinedNoValue}"/>
+        </Style>
+
+        <Style Selector="^[Size=Small][Variant=Outlined]:not(:empty) /template/ TextPresenter#PART_TextPresenter">
+            <Setter Property="Margin" Value="{StaticResource TextPaddingSmallOutlinedWithValue}"/>
+        </Style>
+
+        <!-- Small Label îòñòóïû -->
+        <Style Selector="^[Size=Small][Variant=Standard]:empty /template/ TextBlock#PART_Label">
+            <Setter Property="Margin" Value="{StaticResource LabelMarginSmallStandard}"/>
+        </Style>
+
+        <Style Selector="^[Size=Small][Variant=Standard]:not(:empty) /template/ TextBlock#PART_Label">
+            <Setter Property="Margin" Value="{StaticResource LabelMarginSmallStandardWithValue}"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+
+        <Style Selector="^[Size=Small][Variant=Filled]:empty /template/ TextBlock#PART_Label">
+            <Setter Property="Margin" Value="{StaticResource LabelMarginSmallFilled}"/>
+        </Style>
+
+        <Style Selector="^[Size=Small][Variant=Filled]:not(:empty) /template/ TextBlock#PART_Label">
+            <Setter Property="Margin" Value="{StaticResource LabelMarginSmallFilledWithValue}"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+
+        <!-- Small Outlined Label -->
+        <Style Selector="^[Size=Small][Variant=Outlined]:not(:empty) /template/ Border#PART_OutlinedLabelContainer">
+            <Setter Property="Margin" Value="{StaticResource OutlinedLabelMarginWithValue}"/>
+        </Style>
+
+        <!-- === ÓÏÐÀÂËÅÍÈÅ ÑÊÐÎËËÎÌ È ÏÅÐÅÍÎÑÎÌ ÒÅÊÑÒÀ === -->
+        <Style Selector="^ /template/ ScrollViewer#PART_ScrollViewer">
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+
+        <Style Selector="^[IsMultiLine=True] /template/ ScrollViewer#PART_ScrollViewer">
+            <Setter Property="Margin" Value="0,0,2,0"/>
+        </Style>
+
+        <Style Selector="^[IsMultiLine=True] /template/ TextPresenter#PART_TextPresenter">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="MinHeight" Value="{TemplateBinding MinHeight}"/>
+        </Style>
+
+        <Style Selector="^[IsMultiLine=False] /template/ ScrollViewer#PART_ScrollViewer">
+            <Setter Property="VerticalScrollBarVisibility" Value="Disabled"/>
+        </Style>
+
+        <Style Selector="^[IsMultiLine=False] /template/ TextPresenter#PART_TextPresenter">
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+        </Style>
+
+        <!-- === ÑÎÑÒÎßÍÈß ÊÎÍÒÐÎËÀ === -->
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="1.0"/>
+            <Setter Property="Foreground" Value="{StaticResource TextColorDisabled}"/>
+        </Style>
+
+        <Style Selector="^:focus:not(:disabled)">
+            <Setter Property="BorderBrush" Value="{StaticResource BorderColorFocused}"/>
+        </Style>
+
+        <Style Selector="^:pointerover:not(:disabled):not(:focus)">
+            <Setter Property="BorderBrush" Value="{StaticResource BorderColorHover}"/>
+        </Style>
+
+        <Style Selector="^[IsError=True]:not(:disabled):not(:pointerover):not(:focus)">
+            <Setter Property="BorderBrush" Value="{StaticResource BorderColorError}"/>
+        </Style>
+
+        <Style Selector="^:disabled[Variant=Standard]">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TextField.Border.Disabled.Dotted}"/>
+            <Setter Property="BorderThickness" Value="0,0,0,2"/>
+        </Style>
+
+        <Style Selector="^:disabled[Variant=Filled]">
+            <Setter Property="Background" Value="{StaticResource FilledBackgroundColor}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TextField.Border.Disabled.Dotted}"/>
+            <Setter Property="BorderThickness" Value="0,0,0,2"/>
+        </Style>
+
+        <Style Selector="^:disabled[Variant=Outlined]">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="{StaticResource BorderColorDisabled}"/>
+        </Style>
+
+        <!-- === ÖÂÅÒ LABEL ÏÎ ÑÎÑÒÎßÍÈßÌ === -->
+        <Style Selector="^:focus:not(:disabled):not(:empty) /template/ TextBlock#PART_Label,
+                         ^:focus:not(:disabled):not(:empty) /template/ TextBlock#PART_OutlinedLabel">
+            <Setter Property="Foreground" Value="{StaticResource LabelColorFocused}"/>
+        </Style>
+
+        <Style Selector="^[IsError=True]:not(:disabled):not(:pointerover):not(:focus):not(:empty) /template/ TextBlock#PART_Label,
+                         ^[IsError=True]:not(:disabled):not(:pointerover):not(:focus):not(:empty) /template/ TextBlock#PART_OutlinedLabel">
+            <Setter Property="Foreground" Value="{StaticResource LabelColorError}"/>
+        </Style>
+
+        <Style Selector="^:disabled /template/ TextBlock#PART_Label,
+                         ^:disabled /template/ TextBlock#PART_OutlinedLabel">
+            <Setter Property="Foreground" Value="{StaticResource LabelColorDisabled}"/>
+        </Style>
+
+    </ControlTheme>
+</ResourceDictionary>

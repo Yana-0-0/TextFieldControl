@@ -1,0 +1,56 @@
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldControl\bin\Debug\net8.0\TextFieldControl.deps.json
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldControl\bin\Debug\net8.0\TextFieldControl.dll
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldControl\bin\Debug\net8.0\TextFieldControl.pdb
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldControl\obj\Debug\net8.0\TextFieldControl.csproj.AssemblyReference.cache
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldControl\obj\Debug\net8.0\Avalonia\Resources.Inputs.cache
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldControl\obj\Debug\net8.0\Avalonia\resources
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldControl\obj\Debug\net8.0\TextFieldControl.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldControl\obj\Debug\net8.0\TextFieldControl.AssemblyInfoInputs.cache
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldControl\obj\Debug\net8.0\TextFieldControl.AssemblyInfo.cs
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldControl\obj\Debug\net8.0\TextFieldControl.csproj.CoreCompileInputs.cache
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldControl\obj\Debug\net8.0\TextFieldControl.dll
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldControl\obj\Debug\net8.0\refint\TextFieldControl.dll
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldControl\obj\Debug\net8.0\TextFieldControl.pdb
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldControl\obj\Debug\net8.0\ref\TextFieldControl.dll
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\TextFieldControl.csproj.AssemblyReference.cache
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\Avalonia\Resources.Inputs.cache
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\Avalonia\resources
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\TextFieldControl.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\TextFieldControl.AssemblyInfoInputs.cache
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\TextFieldControl.AssemblyInfo.cs
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\TextFieldControl.csproj.CoreCompileInputs.cache
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\TextFieldControl.dll
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\refint\TextFieldControl.dll
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\TextFieldControl.pdb
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldSolution\TextFieldControl\bin\Debug\net8.0\TextFieldControl.deps.json
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldSolution\TextFieldControl\bin\Debug\net8.0\TextFieldControl.dll
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldSolution\TextFieldControl\bin\Debug\net8.0\TextFieldControl.pdb
+C:\Users\yana-\source\repos\ФИНАЛ\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\ref\TextFieldControl.dll
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\TextFieldSolution\TextFieldControl\bin\Debug\net8.0\TextFieldControl.deps.json
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\TextFieldSolution\TextFieldControl\bin\Debug\net8.0\TextFieldControl.dll
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\TextFieldSolution\TextFieldControl\bin\Debug\net8.0\TextFieldControl.pdb
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\TextFieldControl.csproj.AssemblyReference.cache
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\Avalonia\Resources.Inputs.cache
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\Avalonia\resources
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\TextFieldControl.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\TextFieldControl.AssemblyInfoInputs.cache
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\TextFieldControl.AssemblyInfo.cs
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\TextFieldControl.csproj.CoreCompileInputs.cache
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\TextFieldControl.dll
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\refint\TextFieldControl.dll
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\TextFieldControl.pdb
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\ref\TextFieldControl.dll
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\отправленный вариант\TextFieldSolution\TextFieldControl\bin\Debug\net8.0\TextFieldControl.deps.json
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\отправленный вариант\TextFieldSolution\TextFieldControl\bin\Debug\net8.0\TextFieldControl.dll
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\отправленный вариант\TextFieldSolution\TextFieldControl\bin\Debug\net8.0\TextFieldControl.pdb
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\отправленный вариант\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\TextFieldControl.csproj.AssemblyReference.cache
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\отправленный вариант\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\Avalonia\Resources.Inputs.cache
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\отправленный вариант\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\Avalonia\resources
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\отправленный вариант\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\TextFieldControl.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\отправленный вариант\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\TextFieldControl.AssemblyInfoInputs.cache
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\отправленный вариант\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\TextFieldControl.AssemblyInfo.cs
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\отправленный вариант\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\TextFieldControl.csproj.CoreCompileInputs.cache
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\отправленный вариант\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\TextFieldControl.dll
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\отправленный вариант\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\refint\TextFieldControl.dll
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\отправленный вариант\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\TextFieldControl.pdb
+C:\Users\yana-\source\repos\ФИНАЛ\ИДЕАЛЬНО БЕЗ СКРОЛЛА\отправленный вариант\TextFieldSolution\TextFieldControl\obj\Debug\net8.0\ref\TextFieldControl.dll
