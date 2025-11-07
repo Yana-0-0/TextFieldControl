@@ -321,9 +321,9 @@ public class TextField : TextBox
     /// <summary>
     /// Обработчик колесика мыши для прокрутки текста
     /// </summary>
-    private void OnTextPresenterPointerWheelChanged(object? sender, PointerWheelEventArgs e)
+    private void OnTextFieldPointerWheelChanged(object? sender, PointerWheelEventArgs e)
     {
-        if (IsMultiLine && HasMaxRows && _customScrollBar.IsHitTestVisible)
+        if (IsMultiLine && HasMaxRows && _customScrollBar != null && _customScrollBar.IsHitTestVisible)
         {
             double scrollWheelSpeed = GetScrollWheelSpeed();
             double delta = e.Delta.Y * scrollWheelSpeed;
@@ -394,8 +394,9 @@ public class TextField : TextBox
         _customScrollBar.ValueChanged -= OnCustomScrollBarValueChanged;
         _customScrollBar.ValueChanged += OnCustomScrollBarValueChanged;
 
-        _textPresenter.PointerWheelChanged -= OnTextPresenterPointerWheelChanged;
-        _textPresenter.PointerWheelChanged += OnTextPresenterPointerWheelChanged;
+        // Подписываемся на колесико для всего контрола
+        this.PointerWheelChanged -= OnTextFieldPointerWheelChanged;
+        this.PointerWheelChanged += OnTextFieldPointerWheelChanged;
     }
 
     /// <summary>
@@ -488,10 +489,7 @@ public class TextField : TextBox
             _customScrollBar.ValueChanged -= OnCustomScrollBarValueChanged;
         }
 
-        if (_textPresenter != null)
-        {
-            _textPresenter.PointerWheelChanged -= OnTextPresenterPointerWheelChanged;
-        }
+        this.PointerWheelChanged -= OnTextFieldPointerWheelChanged;
     }
 
     #endregion
