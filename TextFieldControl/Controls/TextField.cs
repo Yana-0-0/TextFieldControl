@@ -201,8 +201,6 @@ public class TextField : TextBox
     /// </summary>
     private void SetupScrollBar()
     {
-        if (_scrollViewer == null || _customScrollBar == null || _textPresenter == null) return;
-
         _customScrollBar.Opacity = 0;
         _customScrollBar.IsHitTestVisible = false;
         _textPresenter.RenderTransform = new TranslateTransform();
@@ -215,9 +213,6 @@ public class TextField : TextBox
     /// </summary>
     private void UpdateCustomScrollBar()
     {
-        if (_customScrollBar == null || _scrollViewer == null || _textPresenter == null)
-            return;
-
         if (!IsMultiLine || !HasMaxRows)
         {
             ResetScrollBar();
@@ -247,8 +242,6 @@ public class TextField : TextBox
     /// </summary>
     private void SetupScrollBarForScrolling(double textHeight, double viewportHeight)
     {
-        if (_customScrollBar == null || _textPresenter == null) return;
-
         _customScrollBar.Opacity = 1;
         _customScrollBar.IsHitTestVisible = true;
 
@@ -270,8 +263,6 @@ public class TextField : TextBox
     /// </summary>
     private void ResetScrollBar()
     {
-        if (_customScrollBar == null || _textPresenter == null) return;
-
         _customScrollBar.Opacity = 0;
         _customScrollBar.IsHitTestVisible = false;
         _customScrollBar.Value = 0;
@@ -287,8 +278,6 @@ public class TextField : TextBox
     /// </summary>
     private void UpdateScrollBarValue(double scrollableHeight)
     {
-        if (_customScrollBar == null || _textPresenter == null) return;
-
         if (_textPresenter.RenderTransform is TranslateTransform transform)
         {
             double currentTransformY = transform.Y;
@@ -334,7 +323,7 @@ public class TextField : TextBox
     /// </summary>
     private void OnTextPresenterPointerWheelChanged(object? sender, PointerWheelEventArgs e)
     {
-        if (IsMultiLine && HasMaxRows && _scrollViewer != null && _customScrollBar.IsHitTestVisible)
+        if (IsMultiLine && HasMaxRows && _customScrollBar.IsHitTestVisible)
         {
             double scrollWheelSpeed = GetScrollWheelSpeed();
             double delta = e.Delta.Y * scrollWheelSpeed;
@@ -396,9 +385,10 @@ public class TextField : TextBox
     /// </summary>
     private void InitializeTemplateElements(TemplateAppliedEventArgs e)
     {
-        _scrollViewer = e.NameScope.Find<ScrollViewer>("PART_ScrollViewer");
-        _textPresenter = e.NameScope.Find<TextPresenter>("PART_TextPresenter");
-        _customScrollBar = e.NameScope.Find<ScrollBar>("PART_CustomScrollBar");
+        INameScope nameScope = e.NameScope;
+        _scrollViewer = nameScope.Find<ScrollViewer>("PART_ScrollViewer") ?? throw new NullReferenceException(nameof(_scrollViewer));
+        _textPresenter = nameScope.Find<TextPresenter>("PART_TextPresenter") ?? throw new NullReferenceException(nameof(_textPresenter));
+        _customScrollBar = nameScope.Find<ScrollBar>("PART_CustomScrollBar") ?? throw new NullReferenceException(nameof(_customScrollBar));
 
         // Отписываемся перед подпиской (защита от дублирования)
         _customScrollBar.ValueChanged -= OnCustomScrollBarValueChanged;
@@ -413,8 +403,6 @@ public class TextField : TextBox
     /// </summary>
     private void HandleScrollBarValueChange()
     {
-        if (_textPresenter == null || _customScrollBar == null || _scrollViewer == null) return;
-
         double scrollBarValue = _customScrollBar.Value;
         var textLayout = _textPresenter.TextLayout;
         var viewportHeight = _scrollViewer.Bounds.Height;
@@ -449,8 +437,6 @@ public class TextField : TextBox
     /// </summary>
     private void HandleTextInputScroll()
     {
-        if (_textPresenter == null || _customScrollBar == null || _scrollViewer == null) return;
-
         var textLayout = _textPresenter.TextLayout;
         var viewportHeight = _scrollViewer.Bounds.Height;
 
